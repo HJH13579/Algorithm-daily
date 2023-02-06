@@ -21,10 +21,10 @@ for tck in range(1, T + 1):
         for j in range(i, i + M):
             sum_num += arr[j]
 
-        if max < sum_num:
-                max = sum_num
+        if mx < sum_num:
+            mx = sum_num
 
-        if min > sum_num:
-                min = sum_num
+        if mn > sum_num:
+            mn = sum_num
 
     print(f'#{tck} {max - min}')
