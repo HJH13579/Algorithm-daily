@@ -8,7 +8,6 @@ for tck in range(1, T + 1):
     N = int(input())
     arr = list(map(int, input().split()))
 
-    lst = []
     max_num = 0
 
     for i in range(N):
