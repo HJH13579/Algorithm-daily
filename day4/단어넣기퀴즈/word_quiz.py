@@ -12,49 +12,24 @@ for tck in range(1, T+1):
 
     count_num = 0
 
-    # 가로 테스트
-    di = [0] * (K + 2)
-    dj = []
-    n = -2
-    for _ in range(K + 2):
-        n += 1
-        dj.append(n)
+    # [1] K개의 칸이 연속으로 1
 
+    # [2] K개의 칸 양 옆으로 0 또는 벽면이 존재
+
+    # 가로 방향
     for i in range(N):
-        for j in range(N):
-            for k in range(K + 2):
-                ni, nj = i + di[k], j + dj[k]
+        for j in range(N - K + 1):
+            if (arr[i][j] == arr[i][j + 1] == arr[i][j + 2] == 1) and (arr[i][j - 1] == 0) and (arr[i][j + 1] == 0):
+                count_num += 1
+            else:
+                pass
 
-                if 0 <= ni < N and 0 <= nj < N:
-                    if arr[0][0] == arr[0][K + 1] == 0 and [arr[0][x] for x in range(1, K + 1)] == 1:
-                        count_num += 1
-                elif arr[0][0] < 0:
-                    if arr[0][K + 1] == 0 and [arr[0][x] for x in range(1, K + 1)] == 1:
-                        count_num += 1
-                elif arr[0][K + 1] > N:
-                    if arr[0][0] == 0 and [arr[0][x] for x in range(1, K + 1)] == 1:
-                        count_num += 1
-                else:
-                    pass
-
-    # # 세로로 테스트
-    di, dj = dj, di
-
-    for i in range(N):
-        for j in range(N):
-            for k in range(K + 2):
-                ni, nj = i + di[k], j + dj[k]
-
-                if 0 <= ni < N and 0 <= nj < N:
-                    if arr[0][0] == arr[K + 1][0] == 0 and [arr[x][0] for x in range(1, K + 1)] == 1:
-                        count_num += 1
-                elif arr[0][0] < 0:
-                    if arr[K + 1][0] == 0 and [arr[x][0] for x in range(1, K + 1)] == 1:
-                        count_num += 1
-                elif arr[K + 1][0] > N:
-                    if arr[0][0] == 0 and [arr[x][0] for x in range(1, K + 1)] == 1:
-                        count_num += 1
-                else:
-                    pass
+    # 세로 방향
+    for j in range(N):
+        for i in range(N - K + 1):
+            if (arr[i][j] == arr[i + 1][j] == arr[i + 2][j] == 1) and (arr[i - 1][j] == 0 or i < 1) and (arr[i + 1][j] == 0 or i > N - 1):
+                count_num += 1
+            else:
+                pass
 
     print(f'#{tck} {count_num}')
