@@ -2,13 +2,25 @@ import sys
 
 sys.stdin = open("s_input.txt", "r")
 
+def ans_count(ar, n, k):
+
+    count_num = 0
+
+    for i in range(1, n + 1):
+        for j in range(1, n - k + 2):
+            if (arr[i][s + j] == 1 and ar[i][s + j - 1] == 0 and ar[i][s + j + 1] == 0 for s in range(K)):
+                count_num += 1
+
+    return count_num
+
+
 T = int(input())
 
 for tck in range(1, T+1):
 
     N, K = map(int, input().split())
 
-    arr = [list(map(int, input().split())) for _ in range(N)]
+    arr = [[0] * (N + 2)] + [[0] + list(map(int, input().split())) + [0] for _ in range(N)] + [[0] * (N + 2)]
 
     count_num = 0
 
@@ -16,20 +28,16 @@ for tck in range(1, T+1):
 
     # [2] K개의 칸 양 옆으로 0 또는 벽면이 존재
 
+    # 벽면 처리를 위해 padding
+
+
     # 가로 방향
-    for i in range(N):
-        for j in range(N - K + 1):
-            if (arr[i][j] == arr[i][j + 1] == arr[i][j + 2] == 1) and (arr[i][j - 1] == 0) and (arr[i][j + 1] == 0):
-                count_num += 1
-            else:
-                pass
+    ans1 = ans_count(arr, N, K)
+
 
     # 세로 방향
-    for j in range(N):
-        for i in range(N - K + 1):
-            if (arr[i][j] == arr[i + 1][j] == arr[i + 2][j] == 1) and (arr[i - 1][j] == 0 or i < 1) and (arr[i + 1][j] == 0 or i > N - 1):
-                count_num += 1
-            else:
-                pass
+    ans2 = ans_count(arr, N, K)
 
-    print(f'#{tck} {count_num}')
+    ans = ans1 + ans2
+
+    print(f'#{tck} {ans}')

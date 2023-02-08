@@ -26,4 +26,6 @@ for tck in range(1, T+1):
     print(f'#{tck}')
 
     for x in range(N):
-            print(*lst_90[x], sep='')
+            print(*lst_90[x], sep='', end=' ')
+            print(*lst_180[x], sep='', end=' ')
+            print(*lst_270[x], sep='')
