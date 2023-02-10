@@ -51,7 +51,7 @@ for tck in range(1, T + 1):
 
             for i in range(3):
                 for j in range(3):
-                    set_grid3.add(arr[i+3*x][j+3*y])
+                    set_grid3.add(arr[i + (3 * x)][j + (3 * y)])
 
             if len(set_grid3) != 9:
                 result = 0
