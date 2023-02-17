@@ -30,4 +30,4 @@ for tck in range(1, 11):
         else:
             break
 
-    print(f'#{tck}', "".join(map(str,ans)))
+    print(f'#{tck}', "".join(map(str, ans)))

@@ -1,14 +1,13 @@
 import sys
 sys.stdin = open("s_input.txt", "r")
 
-def quick_sort(n):
-    pivot_idx = 0
+def quick_sort(N, lst):
+    if
 
-    if n % 2 == 0:
-        pivot_idx = n // 2
     else:
-        pivot_idx = n // 2 + 1
-    
+        p = lst.pop()
+
+    return
 
 
 
