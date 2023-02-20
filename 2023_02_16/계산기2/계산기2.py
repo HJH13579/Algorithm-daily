@@ -15,6 +15,16 @@ for tck in range(1, 11):
         if x.isdigit():
             equ += x
         else:
+            while stk and priority[x] <= priority[stk[-1]]:
+                equ += stk.pop()
+            stk.append(x)
+
+    while stk:
+        equ += stk.pop()
+
+    print(f'#{tck} {equ}')
+
+
 
 
 
