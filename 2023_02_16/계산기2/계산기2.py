@@ -22,11 +22,21 @@ for tck in range(1, 11):
     while stk:
         equ += stk.pop()
 
-    print(f'#{tck} {equ}')
+    # print(f'#{tck} {equ}')
+
+    # [2] 후위표기식 계산
+    for y in equ:
+        if y.isdigit():
+            stk.append(y)
+        else:
+            if y == '*':
+                stk.append(int(stk.pop()) * int(stk.pop()))
+            elif y == '+':
+                stk.append(int(stk.pop()) + int(stk.pop()))
+
+    ans = stk.pop()
+
+    print(f'#{tck} {ans}')
 
 
 
-
-
-
-    print(f'#{tck} {string}')

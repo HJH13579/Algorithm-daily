@@ -8,6 +8,7 @@ for tck in range(1, 11):
 
     eq = ''
     stk = []
+    ans = 0
 
     # [1] 후위 표기식
     for x in string:
@@ -22,7 +23,15 @@ for tck in range(1, 11):
     while stk:
         eq += stk.pop()
 
-    print(f'#{tck} {eq}')
+    # print(f'#{tck} {eq}')
 
     # [2] 후위 표기식 계산
-    for i 
+    for y in eq:
+        if y.isdigit():
+            stk.append(y)
+        else:
+            stk.append(int(stk.pop()) + int(stk.pop()))
+
+    ans = stk.pop()
+
+    print(f'#{tck} {ans}')
