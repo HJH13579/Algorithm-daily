@@ -1,12 +1,10 @@
-N = 5
+N = 7
 
 arr = [[0]*N for _ in range(N)]
 
-for m in range(N):
-    for n in range(N):
-        for i in range(-2, 3):
-            for j in range(-2, 3):
-                if 0 <= abs(i) + abs(j) <= 2 and 0 <= i+m < N and 0 <= j+n < N:
-                    arr[i+m][j+n] = 1
+for i in range(-3, 4):
+    for j in range(-3, 4):
+        if 0 <= abs(i) + abs(j) <= 3 and 0 <= i+1 < N and 0 <= j+1 < N:
+            arr[i+1][j+1] = 1
 
 print(arr)

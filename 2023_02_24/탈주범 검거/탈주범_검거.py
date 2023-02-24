@@ -2,10 +2,6 @@ import sys
 sys.stdin = open("sample_input.txt", "r")
 
 def movement(r, c):
-    visited[r][c] = 1
-    if arr[r][c] == 1:
-        movement(r, c+1)
-        movement(r, c-1)
 
 
 
