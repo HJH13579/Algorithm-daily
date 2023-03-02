@@ -19,14 +19,24 @@ def sixteen_to_two_digit(string):
     return code
 
 def decoding(code):
+    alst = []
+
     idx = 0
     for y in range(len(code)-1, -1, -1):
         if code[y] == '1':
             idx = y
             break
 
-    for z in range(idx, -1, -6):
-        
+    for z in range(idx-5, -1, -6):
+        decode = ''
+        for m in range(6):
+            decode += code[z+m]
+
+        for k in code_dic.keys():
+            if k == decode:
+                alst.append(code_dic[k])
+
+    return list(reversed(alst))
 
 T = int(input())
 
@@ -35,4 +45,4 @@ for tck in range(1, T+1):
 
     ans = decoding(sixteen_to_two_digit(string))
 
-    print(f'#{tck} {ans}')
+    print(f'#{tck}', *ans)
