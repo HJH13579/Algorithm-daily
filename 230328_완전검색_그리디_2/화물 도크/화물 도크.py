@@ -8,7 +8,7 @@ for tck in range(1, T+1):
     lst = []
     for _ in range(N):
         s, e = map(int, input().split())
-        lst
+        lst.append((s, e))
 
 
     print(f'#{tck} {lst}')
